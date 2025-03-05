@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  font-family: Montserrat;
+}
+body {
+  font-family: Montserrat;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: #fff;
+  height: 100vh;
+  background-image: linear-gradient(to right, #7b4397, #dc2430);
+}
+.bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url(bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+}
+.bg::before {
+  content: "";
+  position: absolute; /* Cover the entire container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgb(212, 28, 100, 0.4),
+    rgb(243, 108, 33, 0.5)
+  ); /* Gradient overlay */
+  filter: brightness(90%) contrast(110%); /* Optional filter for the image */
+  z-index: 1; /* Ensure this stays below other foreground elements */
+}
+.navbar .logo {
+  position: relative;
+  width: 100%;
+  flex-basis: 50%;
+}
+.navbar .logo a img {
+  width: 32%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  justify-content: space-evenly; /* Distribute items evenly */
+  padding: 0;
+  flex-basis: 70%;
+  align-items: center;
+}
+
+.nav-items li {
+  margin-left: 10px;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: rgb(243, 108, 33);
+  font-size: 14px;
+  transition: color 0.3s;
+  flex: 1;
+  display: inline-block;
+}
+
+.nav-items a:hover {
+  color: rgb(212, 28, 100); /* Matches the gradient colors */
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background-color: #333;
+  height: 4px;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+input,
+textarea {
+  width: 60%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background-color: rgb(255, 255, 255, 0.7);
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.calculator {
+  flex: 1;
+}
+.result-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calculator label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  flex: 1;
+}
+
+.calculator input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+}
+
+button {
+  background-color: rgb(235, 57, 143);
+  width: 40%;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 1rem;
+}
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.input span {
+  margin-left: 1rem;
+}
+button:hover {
+  background-color: orange;
+}
+.sitescore {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  align-self: center;
+  background-color: #f36c21;
+  color: #fff;
+  text-transform: none;
+  font-size: 14px;
+  transition: 0.5;
+  border: none;
+}
+.sitescore:hover {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}

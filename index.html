@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEO ROI Calculator (₹)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <nav class="navbar">
+      <div class="logo">
+        <a href="https://www.noolmedia.in/"
+          ><img src="nool.png" alt="Logo"
+        /></a>
+      </div>
+      <ul class="nav-items">
+        <li><a href="https://www.noolmedia.in/">Home</a></li>
+        <li>
+          <a href="https://www.noolmedia.in/#mediaiskgjyue11">Services</a>
+        </li>
+        <li><a href="https://www.noolmedia.in/#comp-m0f8afp6">About Us</a></li>
+        <li><a href="https://www.noolmedia.in/blog">Blog</a></li>
+        <li><a href="https://www.noolmedia.in/#comp-lsvshvee">Projects</a></li>
+        <li>
+          <a href="https://www.noolmedia.in/#comp-lsvshvef1">Lets Talk</a>
+        </li>
+        <li>
+          <a href="https://seo-report.onrender.com/"
+            ><button class="sitescore">Site score ></button></a
+          >
+        </li>
+        <li>
+          <a href="https://www.noolmedia.in/#comp-lsvshvef1"
+            >SEO Snippet Optimizer</a
+          >
+        </li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <h1>SEO ROI Calculator (₹)</h1>
+    <div class="container">
+      <div class="calculator">
+        <div class="input">
+          <label for="traffic">Estimated Monthly Traffic:</label>
+          <input
+            type="range"
+            id="traffic"
+            min="100"
+            max="100000"
+            step="100"
+            value="5000"
+            oninput="updateValue('trafficValue', this.value)"
+          />
+          <span id="trafficValue">5000</span>
+        </div>
+        <div class="input">
+          <label for="conversionRate">Conversion Rate (%):</label>
+          <input
+            type="range"
+            id="conversionRate"
+            min="0.1"
+            max="50"
+            step="0.1"
+            value="2"
+            oninput="updateValue('conversionRateValue', this.value)"
+          />
+          <span id="conversionRateValue">2</span>%
+        </div>
+        <div class="input">
+          <label for="orderValue">Average Order Value (₹):</label>
+          <input
+            type="range"
+            id="orderValue"
+            min="100"
+            max="50000"
+            step="100"
+            value="1000"
+            oninput="updateValue('orderValueValue', this.value)"
+          />
+          <span id="orderValueValue">1000</span> ₹
+        </div>
+        <div class="input">
+          <label for="seoCost">Total SEO Cost (₹):</label>
+          <input
+            type="range"
+            id="seoCost"
+            min="1000"
+            max="500000"
+            step="1000"
+            value="50000"
+            oninput="updateValue('seoCostValue', this.value)"
+          />
+          <span id="seoCostValue">50000</span> ₹
+        </div>
+        <button onclick="calculateROI()">Calculate ROI</button>
+      </div>
+
+      <div id="result" class="result-box">
+        <h2>Results</h2>
+        <p class="result-item">
+          <strong>Visitors:</strong> <span id="resultVisitors">-</span>
+        </p>
+        <p class="result-item">
+          <strong>Conversions:</strong> <span id="resultConversions">-</span>
+        </p>
+        <p class="result-item">
+          <strong>AOV (₹):</strong> ₹<span id="resultAOV">-</span>
+        </p>
+        <p class="result-item">
+          <strong>Net Revenue (Monthly):</strong> ₹<span id="resultRevenue"
+            >-</span
+          >
+        </p>
+        <p class="result-item">
+          <strong>Total Lifetime Value:</strong> ₹<span id="resultLifetime"
+            >-</span
+          >
+        </p>
+        <p class="result-item">
+          <strong>Monthly ROI:</strong> <span id="resultROI">-</span>%
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
