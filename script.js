@@ -41,3 +41,7 @@ document.querySelectorAll("input[type='range']").forEach((slider) => {
 
 // Run once to initialize results on page load
 updateResults();
+document.getElementById("hamburger").addEventListener("click", function () {
+  const navItems = document.querySelector(".nav-items");
+  navItems.classList.toggle("active");
+});
