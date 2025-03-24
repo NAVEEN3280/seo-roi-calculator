@@ -1,10 +1,11 @@
 // Function to update values dynamically when sliders change
 function updateResults() {
-  let traffic = parseFloat(document.getElementById("traffic").value);
+  // Get input values and handle empty inputs
+  let traffic = parseFloat(document.getElementById("traffic").value) || 0;
   let conversionRate =
-    parseFloat(document.getElementById("conversionRate").value) / 100; // Convert to decimal
-  let orderValue = parseFloat(document.getElementById("orderValue").value);
-  let seoCost = parseFloat(document.getElementById("seoCost").value);
+    (parseFloat(document.getElementById("conversionRate").value) || 0) / 100; // Convert to decimal
+  let orderValue = parseFloat(document.getElementById("orderValue").value) || 0;
+  let seoCost = parseFloat(document.getElementById("seoCost").value) || 0;
 
   // Update slider value displays
   document.getElementById("trafficValue").innerText = traffic.toLocaleString();
@@ -19,7 +20,7 @@ function updateResults() {
   let conversions = Math.round(traffic * conversionRate); // Total conversions
   let netRevenue = conversions * orderValue; // Monthly revenue
   let totalLifetimeValue = netRevenue; // Assuming a single-time revenue calculation
-  let roi = ((netRevenue - seoCost) / seoCost) * 100; // ROI percentage
+  let roi = seoCost !== 0 ? ((netRevenue - seoCost) / seoCost) * 100 : 0; // Avoid division by zero
 
   // Update results in real-time
   document.getElementById("resultVisitors").innerText =
@@ -41,6 +42,8 @@ document.querySelectorAll("input[type='range']").forEach((slider) => {
 
 // Run once to initialize results on page load
 updateResults();
+
+// Hamburger menu toggle
 document.getElementById("hamburger").addEventListener("click", function () {
   const navItems = document.querySelector(".nav-items");
   navItems.classList.toggle("active");
