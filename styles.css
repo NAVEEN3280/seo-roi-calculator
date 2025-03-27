@@ -118,11 +118,12 @@ textarea {
   align-items: center;
   margin: 2rem;
 }
-
+.content {
+  margin: 2rem;
+}
 h1 {
-  font-size: 24px;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: start;
 }
 .calculator {
   flex: 1;
@@ -152,7 +153,7 @@ h1 {
 
 button {
   background-color: rgb(235, 57, 143);
-  width: 40%;
+  width: 16%;
   color: white;
   border: none;
   border-radius: 10px;
@@ -168,6 +169,11 @@ button {
 }
 .input span {
   margin-left: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
 }
 button:hover {
   background-color: orange;
@@ -194,11 +200,56 @@ button:hover {
   margin-top: 15px;
   font-size: 18px;
   font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000;
+  padding: 2rem;
+  border-radius: 10px;
 }
+
+#result p span {
+  margin-left: 1rem;
+}
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background: #f1f1f1;
+}
+
+.dropdown-container:hover .dropdown {
+  display: block;
+}
+
 @media (max-width: 768px) {
   .container {
     margin: 1rem;
     flex-direction: column;
+  }
+  .input-group {
+    flex-direction: column;
+  }
+  button {
+    width: 40%;
   }
   input,
   textarea {

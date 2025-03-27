@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SEO ROI Calculator (₹)</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SEO ROI Calculator</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,9 +12,9 @@
 
     <nav class="navbar">
       <div class="logo">
-        <a href="https://www.noolmedia.in/"
-          ><img src="nool.png" alt="Logo"
-        /></a>
+        <a href="https://www.noolmedia.in/">
+          <img src="nool.png" alt="Logo" />
+        </a>
       </div>
       <ul class="nav-items">
         <li><a href="https://www.noolmedia.in/">Home</a></li>
@@ -26,15 +27,24 @@
         <li>
           <a href="https://www.noolmedia.in/#comp-lsvshvef1">Lets Talk</a>
         </li>
-        <li>
-          <a href="https://seo-report.onrender.com/"
-            ><button class="sitescore">Site score ></button></a
-          >
-        </li>
-        <li>
-          <a href="https://www.noolmedia.in/#comp-lsvshvef1"
-            >SEO Snippet Optimizer</a
-          >
+        <li class="dropdown-container">
+          <a href="#">SEO Tools</a>
+          <div class="dropdown">
+            <a href="https://seo-report.onrender.com">Site Score</a>
+            <a href="https://cro-roi-calculator.vallaham.com/"
+              >CRO ROI Calculator</a
+            >
+            <a href="https://titletag.vallaham.com/"
+              >Meta title length checker</a
+            >
+            <a href="https://competitoraudit.vallaham.com/">Competitor Audit</a>
+            <a href="https://ppc-roi-calculator.vallaham.com/"
+              >PPC ROI Calculator</a
+            >
+            <a href="https://seo-roi-calculator.vallaham.com/"
+              >SEO ROI Calculator</a
+            >
+          </div>
         </li>
       </ul>
       <div class="hamburger" id="hamburger">
@@ -43,90 +53,96 @@
         <span></span>
       </div>
     </nav>
-    <h1>SEO ROI Calculator (₹)</h1>
     <div class="container">
+      <div class="content">
+        <h1>SEO ROI Calculator</h1>
+        Organic SEO traffic will help you develop a regular influx of clients if
+        you have an online business – but how much of a return can you expect
+        from an SEO campaign? To find out, use our calculator...
+      </div>
       <div class="calculator">
-        <div class="input">
-          <label for="traffic">Estimated Monthly Traffic:</label>
-          <input
-            type="range"
-            id="traffic"
-            min="100"
-            max="100000"
-            step="100"
-            value="5000"
-            oninput="updateValue('trafficValue', this.value)"
-          />
-          <span id="trafficValue">5000</span>
+        <div class="input-group">
+          <label for="searchVolume"
+            >How many searches do you get for business-relevant keywords? (per
+            month)</label
+          >
+          <label for="searchVolume">Search Volume (Monthly):</label>
+          <input type="number" id="searchVolume" min="0" value="1600" />
         </div>
-        <div class="input">
+
+        <div class="input-group">
+          <label for="ctr"
+            >What percentage of the people that search for your keywords click
+            on your website?</label
+          >
+          <label for="ctr">CTR (%):</label>
+          <input
+            type="number"
+            id="ctr"
+            min="0"
+            max="100"
+            step="0.1"
+            value="15"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="conversionRate"
+            >Out of the visitors to your website,what percentage convert into
+            customers?</label
+          >
           <label for="conversionRate">Conversion Rate (%):</label>
           <input
-            type="range"
+            type="number"
             id="conversionRate"
-            min="0.1"
-            max="50"
+            min="0"
+            max="100"
             step="0.1"
-            value="2"
-            oninput="updateValue('conversionRateValue', this.value)"
+            value="31"
           />
-          <span id="conversionRateValue">2</span>%
         </div>
-        <div class="input">
-          <label for="orderValue">Average Order Value (₹):</label>
-          <input
-            type="range"
-            id="orderValue"
-            min="100"
-            max="50000"
-            step="100"
-            value="1000"
-            oninput="updateValue('orderValueValue', this.value)"
-          />
-          <span id="orderValueValue">1000</span> ₹
-        </div>
-        <div class="input">
-          <label for="seoCost">Total SEO Cost (₹):</label>
-          <input
-            type="range"
-            id="seoCost"
-            min="1000"
-            max="500000"
-            step="1000"
-            value="50000"
-            oninput="updateValue('seoCostValue', this.value)"
-          />
-          <span id="seoCostValue">50000</span> ₹
-        </div>
-        <button onclick="calculateROI()">Calculate ROI</button>
-      </div>
 
-      <div id="result" class="result-box">
-        <h2>Results</h2>
-        <p class="result-item">
-          <strong>Visitors:</strong> <span id="resultVisitors">-</span>
-        </p>
-        <p class="result-item">
-          <strong>Conversions:</strong> <span id="resultConversions">-</span>
-        </p>
-        <p class="result-item">
-          <strong>AOV (₹):</strong> ₹<span id="resultAOV">-</span>
-        </p>
-        <p class="result-item">
-          <strong>Net Revenue (Monthly):</strong> ₹<span id="resultRevenue"
-            >-</span
+        <div class="input-group">
+          <label for="averageOrderValue"
+            >What is your average order value?</label
           >
-        </p>
-        <p class="result-item">
-          <strong>Total Lifetime Value:</strong> ₹<span id="resultLifetime"
-            >-</span
+          <label for="averageOrderValue">Average Order Value (₹):</label>
+          <input type="number" id="averageOrderValue" min="0" value="1700" />
+        </div>
+
+        <div class="input-group">
+          <label for="lifeTimeValue"
+            >What is the average lifetime value of your customer?</label
           >
-        </p>
-        <p class="result-item">
-          <strong>Monthly ROI:</strong> <span id="resultROI">-</span>%
-        </p>
+          <label for="lifeTimeValue">Life Time Value (₹):</label>
+          <input type="number" id="lifeTimeValue" min="0" value="1600" />
+        </div>
+
+        <button onclick="calculateROI()">Calculate ROI</button>
+
+        <div id="results" class="results">
+          <h2>Results</h2>
+          <p><strong>Visitors:</strong> <span id="resultVisitors">-</span></p>
+          <p>
+            <strong>Conversions:</strong> <span id="resultConversions">-</span>
+          </p>
+          <p><strong>AOV (₹):</strong> <span id="resultAOV">-</span></p>
+          <p>
+            <strong>Net Revenue (Monthly):</strong> ₹<span id="resultRevenue"
+              >-</span
+            >
+          </p>
+          <p>
+            <strong>Total Lifetime Value:</strong> ₹<span
+              id="resultLifetimeValue"
+              >-</span
+            >
+          </p>
+          <p><strong>Monthly ROI:</strong> ₹<span id="resultROI">-</span></p>
+        </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

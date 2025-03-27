@@ -1,50 +1,50 @@
-// Function to update values dynamically when sliders change
-function updateResults() {
-  // Get input values and handle empty inputs
-  let traffic = parseFloat(document.getElementById("traffic").value) || 0;
-  let conversionRate =
-    (parseFloat(document.getElementById("conversionRate").value) || 0) / 100; // Convert to decimal
-  let orderValue = parseFloat(document.getElementById("orderValue").value) || 0;
-  let seoCost = parseFloat(document.getElementById("seoCost").value) || 0;
+function calculateROI() {
+  // Get input values
+  const searchVolume = parseFloat(
+    document.getElementById("searchVolume").value
+  );
+  const ctr = parseFloat(document.getElementById("ctr").value) / 100;
+  const conversionRate =
+    parseFloat(document.getElementById("conversionRate").value) / 100;
+  const averageOrderValue = parseFloat(
+    document.getElementById("averageOrderValue").value
+  );
+  const lifeTimeValue = parseFloat(
+    document.getElementById("lifeTimeValue").value
+  );
 
-  // Update slider value displays
-  document.getElementById("trafficValue").innerText = traffic.toLocaleString();
-  document.getElementById("conversionRateValue").innerText = (
-    conversionRate * 100
-  ).toFixed(1);
-  document.getElementById("orderValueValue").innerText =
-    orderValue.toLocaleString();
-  document.getElementById("seoCostValue").innerText = seoCost.toLocaleString();
+  // Validate inputs
+  if (
+    isNaN(searchVolume) ||
+    isNaN(ctr) ||
+    isNaN(conversionRate) ||
+    isNaN(averageOrderValue) ||
+    isNaN(lifeTimeValue)
+  ) {
+    alert("Please fill in all fields with valid numbers.");
+    return;
+  }
 
-  // Calculate ROI Metrics
-  let conversions = Math.round(traffic * conversionRate); // Total conversions
-  let netRevenue = conversions * orderValue; // Monthly revenue
-  let totalLifetimeValue = netRevenue; // Assuming a single-time revenue calculation
-  let roi = seoCost !== 0 ? ((netRevenue - seoCost) / seoCost) * 100 : 0; // Avoid division by zero
+  // Calculate values with proper rounding
+  const visitors = searchVolume * ctr;
+  const conversions = visitors * conversionRate;
+  const netRevenue = conversions * averageOrderValue;
+  const totalLifetimeValue = conversions * lifeTimeValue;
 
-  // Update results in real-time
-  document.getElementById("resultVisitors").innerText =
-    traffic.toLocaleString();
-  document.getElementById("resultConversions").innerText =
-    conversions.toLocaleString();
-  document.getElementById("resultAOV").innerText = orderValue.toLocaleString();
-  document.getElementById("resultRevenue").innerText =
-    netRevenue.toLocaleString();
-  document.getElementById("resultLifetime").innerText =
-    totalLifetimeValue.toLocaleString();
-  document.getElementById("resultROI").innerText = roi.toFixed(2);
+  // Update results and apply rounding only when displaying
+  document.getElementById("resultVisitors").textContent =
+    Math.round(visitors).toLocaleString();
+  document.getElementById("resultConversions").textContent =
+    Math.round(conversions).toLocaleString();
+  document.getElementById("resultAOV").textContent =
+    averageOrderValue.toLocaleString();
+  document.getElementById("resultRevenue").textContent =
+    Math.round(netRevenue).toLocaleString();
+  document.getElementById("resultLifetimeValue").textContent =
+    Math.round(totalLifetimeValue).toLocaleString();
+  document.getElementById("resultROI").textContent =
+    Math.round(netRevenue).toLocaleString();
+
+  // Show results
+  document.getElementById("results").style.display = "block";
 }
-
-// Attach event listeners to all sliders
-document.querySelectorAll("input[type='range']").forEach((slider) => {
-  slider.addEventListener("input", updateResults);
-});
-
-// Run once to initialize results on page load
-updateResults();
-
-// Hamburger menu toggle
-document.getElementById("hamburger").addEventListener("click", function () {
-  const navItems = document.querySelector(".nav-items");
-  navItems.classList.toggle("active");
-});
