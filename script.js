@@ -46,5 +46,5 @@ function calculateROI() {
     Math.round(netRevenue).toLocaleString();
 
   // Show results
-  document.getElementById("results").style.display = "block";
+  document.getElementById("results").style.display = "flex";
 }
