@@ -48,3 +48,6 @@ function calculateROI() {
   // Show results
   document.getElementById("results").style.display = "flex";
 }
+document.getElementById("hamburger").addEventListener("click", function () {
+  document.querySelector(".nav-items").classList.toggle("active");
+});
