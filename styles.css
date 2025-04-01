@@ -128,9 +128,10 @@ textarea {
 .content {
   margin: 2rem;
 }
-h1 {
+.content h1 {
   margin-bottom: 20px;
   text-align: start;
+  font-size: 3.5rem;
 }
 .calculator {
   flex: 1;
@@ -254,30 +255,84 @@ button:hover {
   display: block;
 }
 
+.r-logo {
+  width: 30%;
+  justify-self: center;
+  display: flex;
+}
+
+.r-head p {
+  text-align: center;
+}
+.results p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+span {
+  justify-self: end;
+}
+
 footer {
   position: relative;
   background-color: #fff;
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-direction: column;
   bottom: 0;
   width: 100%;
   color: #333;
 }
 footer a {
   text-decoration: none;
-  color: #333;
+  color: rgb(124, 124, 131);
 }
-
+.f-logo {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.f-logo img {
+  width: 25%;
+}
+.f-contents {
+  display: flex;
+  flex-direction: row;
+}
+.f-con {
+  flex: 1;
+  margin: 1rem;
+}
+.f-con h2 {
+  color: rgb(124, 124, 131);
+}
+.f-con p {
+  color: rgb(124, 124, 131);
+}
+.q-links {
+  display: flex;
+  flex-direction: row;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.items a {
+  padding: 0.5rem;
+  color: rgb(124, 124, 131);
+}
 .results {
   display: none;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255);
   color: #000;
   padding: 1rem;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  width: 30%;
+  width: 80%;
   margin: 0 auto;
 }
 @media (max-width: 768px) {
@@ -342,5 +397,14 @@ footer a {
   }
   .report-container ul {
     padding-inline-start: 20px;
+  }
+  .f-contents {
+    flex-direction: column;
+  }
+  .f-logo {
+    justify-content: center;
+  }
+  .f-logo img {
+    width: 50%;
   }
 }
